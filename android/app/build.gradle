@@ -1,0 +1,60 @@
+plugins {
+    id 'com.android.application'
+    id 'kotlin-android'
+    id 'com.google.gms.google-services' // Apply the google-services plugin after Android and Kotlin plugins
+    id 'dev.flutter.flutter-gradle-plugin' // Flutter Gradle Plugin
+}
+
+android {
+    namespace = "com.company.auctionhub"
+    compileSdkVersion 34  // Set compileSdk version explicitly
+
+    defaultConfig {
+        applicationId = "com.company.auctionhub" // Ensure this matches google-services.json
+        minSdkVersion 23  // Set minSdk version explicitly
+        targetSdkVersion 34  // Set targetSdk version explicitly
+        versionCode 1  // Set versionCode explicitly
+        versionName "1.0"  // Set versionName explicitly
+
+        ndkVersion "21.4.7075529"  // Specify NDK version if needed
+    }
+
+    compileOptions {
+        sourceCompatibility JavaVersion.VERSION_1_8  // Use Java 1.8 compatibility
+        targetCompatibility JavaVersion.VERSION_1_8  // Use Java 1.8 compatibility
+    }
+
+    kotlinOptions {
+        jvmTarget = "1.8"  // Set JVM target to 1.8 for Kotlin compatibility
+    }
+
+    buildTypes {
+        release {
+            signingConfig = signingConfigs.debug  // Use debug signing config for release (adjust as necessary)
+            // Optional ProGuard configuration for release builds
+            // minifyEnabled true
+            // proguardFiles getDefaultProguardFile('proguard-android-optimize.txt'), 'proguard-rules.pro'
+        }
+    }
+}
+
+flutter {
+    source = "../.."  // Flutter source directory
+}
+
+dependencies {
+    // Use Firebase BoM to manage Firebase SDK versions
+    implementation platform('com.google.firebase:firebase-bom:33.2.0')  // Latest Firebase BOM version
+    implementation 'com.google.firebase:firebase-analytics'  // Firebase Analytics
+    implementation 'com.google.firebase:firebase-auth' // Firebase Authentication
+    implementation 'com.google.firebase:firebase-firestore' // Firebase Firestore
+
+    // Add other Firebase services as needed
+    implementation 'com.google.firebase:firebase-core:21.1.0'
+    implementation 'com.google.firebase:firebase-auth:22.0.0'
+
+    // Example: Add other dependencies as needed
+    // implementation 'com.google.firebase:firebase-storage'
+}
+
+apply plugin: 'com.google.gms.google-services'  // Ensure google-services is applied after dependencies

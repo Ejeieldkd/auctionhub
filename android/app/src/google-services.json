@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "702082155955",
+    "project_id": "auctionhub-ab3bc",
+    "storage_bucket": "auctionhub-ab3bc.appspot.com"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:702082155955:android:e0436827061f2120d637c6",
+        "android_client_info": {
+          "package_name": "com.company.auctionhub"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyCkqeadLUt01QbIELCdPiGWr97e4P5uPQY"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
